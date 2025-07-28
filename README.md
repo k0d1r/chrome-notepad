@@ -1,4 +1,4 @@
-# 📝 Notepad - Ch## 📸 Screenshots
+# 📝 Notepad - Chrome
 
 A simple and functional note-taking application with auto-save, theme support, and history management.
 
