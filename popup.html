@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="popup.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid p-3">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h5 class="mb-0">
+                    <i class="fas fa-sticky-note me-2"></i>
+                    <span id="noteTitle">Untitled Note</span>
+                </h5>
+                <small class="text-muted" id="lastSaved">Last saved: Never</small>
+                <small class="text-info d-block" id="storageInfo" title="Chrome Extension Local Storage">
+                    <i class="fas fa-hdd me-1"></i>Local storage: <span id="storageSize">0 KB</span>
+                </small>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <a href="https://github.com/k0d1r" target="_blank" class="btn btn-outline-secondary btn-sm" title="GitHub - k0d1r">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <ul class="nav nav-pills nav-fill mb-3" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active btn-sm" id="editor-tab" type="button" role="tab">
+                    <i class="fas fa-edit me-1"></i>Note
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link btn-sm" id="history-tab" type="button" role="tab">
+                    <i class="fas fa-history me-1"></i>History
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Editor Tab -->
+            <div class="tab-pane fade show active" id="editor-content">
+                <!-- Note Editor -->
+                <div class="mb-3">
+                    <textarea 
+                        class="form-control" 
+                        id="noteEditor" 
+                        rows="6" 
+                        placeholder="Write your note here..."
+                        style="resize: vertical; min-height: 100px;"
+                    ></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-flex gap-2 mb-3">
+                    <button type="button" class="btn btn-primary btn-sm flex-fill" id="saveBtn">
+                        <i class="fas fa-save me-1"></i>
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" id="deleteBtn" title="Delete Note">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div class="tab-pane fade" id="history-content">
+                <div class="mb-2">
+                    <small class="text-muted">Saved notes:</small>
+                </div>
+                <div id="historyList" class="history-list">
+                    <div class="text-center text-muted py-3">
+                        <i class="fas fa-inbox fa-2x mb-2"></i>
+                        <p class="mb-0">No saved notes yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html> 
